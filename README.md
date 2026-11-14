@@ -1,115 +1,114 @@
 # 🐍 Snaze — A Snake Trapped in a Maze
 
-Snaze é uma simulação em modo texto do clássico jogo **Snake**, com um diferencial: a cobra está presa dentro de um **labirinto**.  
-O projeto foi desenvolvido em **C++** como parte da disciplina **Programming I (DIM0176)** da **Universidade Federal do Rio Grande do Norte (UFRN)**.
+Snaze is a text-mode simulation of the classic **Snake** game, with a twist: the snake is trapped inside a **maze**.  
+The project was developed in **C++** as part of the **Programming I (DIM0176)** course at the **Federal University of Rio Grande do Norte (UFRN)**.
 
-O principal objetivo é implementar uma **inteligência artificial** capaz de conduzir a cobra até os alimentos de forma segura, evitando colisões com paredes e com o próprio corpo.
-
----
-
-## 🎮 Funcionalidades
-
-- Leitura de níveis a partir de arquivos de texto
-- Suporte a múltiplos níveis em um único arquivo
-- Sistema de vidas e pontuação
-- Geração aleatória de alimentos em posições válidas
-- Dois tipos de controle da cobra:
-  - **Random** (movimento aleatório)
-  - **Backtracking** (IA baseada em busca)
-- Simulação em tempo real no terminal
-- Mensagens de status do jogo:
-  - Colisão
-  - Fim de nível
-  - Vitória
-  - Derrota
+The main goal is to implement an **artificial intelligence** capable of safely guiding the snake to the food, avoiding collisions with the walls and with its own body.
 
 ---
 
-## 🧠 Inteligência Artificial
+## 🎮 Features
 
-O modo **backtracking** utiliza uma estratégia de busca para encontrar uma sequência válida de movimentos que leve a cobra até o alimento, considerando:
-
-- As paredes do labirinto
-- As paredes invisíveis
-- O corpo da própria cobra
-- A simulação do movimento do corpo durante a busca
-
-Caso não seja encontrado um caminho válido até o alimento, o sistema automaticamente passa a sugerir movimentos aleatórios.
-
----
-
-## 📥 Entrada
-
-Os níveis do jogo são definidos em arquivos `.txt`.  
-Cada nível contém:
-
-- Dimensões do tabuleiro
-- `#` → parede
-- `.` → parede invisível
-- `&` → posição inicial da cobra
-
-Um arquivo pode conter **um ou mais níveis**, que serão jogados sequencialmente.
+- Loads levels from text files
+- Supports multiple levels in a single file
+- Lives and scoring system
+- Random food spawning at valid positions
+- Two types of snake control:
+  - **Random** (random movement)
+  - **Backtracking** (search-based AI)
+- Real-time simulation in the terminal
+- Game status messages:
+  - Collision
+  - Level complete
+  - Victory
+  - Defeat
 
 ---
 
-## 📤 Saída
+## 🧠 Artificial Intelligence
 
-Durante a execução, o programa exibe no terminal:
+The **backtracking** mode uses a search strategy to find a valid sequence of moves that takes the snake to the food, taking into account:
 
-- Representação textual do labirinto
-- Posição da cobra e do alimento
-- Número de vidas restantes
-- Pontuação atual
-- Quantidade de alimentos restantes
-- Nível atual
+- The maze walls
+- The invisible walls
+- The snake's own body
+- The simulation of the body's movement during the search
 
-Mensagens adicionais são exibidas quando:
-- A cobra colide
-- Um nível é finalizado
-- O jogo é vencido ou perdido
+If no valid path to the food is found, the system automatically falls back to suggesting random moves.
 
-## ⚙️ Como executar
+---
 
-### Compilação
+## 📥 Input
+
+The game levels are defined in `.txt` files.  
+Each level contains:
+
+- Board dimensions
+- `#` → wall
+- `.` → invisible wall
+- `&` → snake starting position
+
+A file can contain **one or more levels**, which are played in sequence.
+
+---
+
+## 📤 Output
+
+During execution, the program displays in the terminal:
+
+- A text representation of the maze
+- The position of the snake and the food
+- Number of lives left
+- Current score
+- Amount of food left
+- Current level
+
+Additional messages are displayed when:
+- The snake collides
+- A level is completed
+- The game is won or lost
+
+## ⚙️ How to run
+
+### Build
 ```bash
 make
 ./build/snaze
 ```
 
-### Opções de linha de comando
+### Command-line options
 
-| Opção | Descrição | Padrão |
+| Option | Description | Default |
 |-------|-----------|--------|
-| `--help` | Exibe a ajuda do programa | - |
-| `--fps <valor>` | Define os frames por segundo | 24 |
-| `--lives <valor>` | Número de vidas da cobra | 5 |
-| `--food <valor>` | Quantidade total de alimentos no jogo | 10 |
-| `--playertype <tipo>` | Tipo de IA: `random` ou `backtracking` | random |
+| `--help` | Shows the program help | - |
+| `--fps <value>` | Sets the frames per second | 24 |
+| `--lives <value>` | Number of snake lives | 5 |
+| `--food <value>` | Total amount of food in the game | 10 |
+| `--playertype <type>` | AI type: `random` or `backtracking` | random |
 
-### Exemplos de uso
+### Usage examples
 ```bash
-# Executar com configurações padrão
+# Run with default settings
 ./build/snaze
 
-# Executar com IA backtracking e 3 vidas
+# Run with the backtracking AI and 3 lives
 ./build/snaze --playertype backtracking --lives 3
 
-# Executar com 60 FPS e 20 alimentos
+# Run at 60 FPS with 20 food items
 ./build/snaze --fps 60 --food 20
 ```
 
 ---
 
-## 📁 Estrutura do projeto
+## 📁 Project structure
 ```
 snaze/
-├── src/              # Arquivos de implementação (.cpp)
-├── include/          # Arquivos de cabeçalho (.h)
-├── data/             # Arquivos de configuração de níveis
-├── build/            # Executável compilado
-├── Makefile          # Script de compilação
-├── README.md         # Documentação principal
-└── author.md         # Informações do autor
+├── src/              # Implementation files (.cpp)
+├── include/          # Header files (.h)
+├── data/             # Level configuration files
+├── build/            # Compiled executable
+├── Makefile          # Build script
+├── README.md         # Main documentation
+└── author.md         # Author information
 ```
-
 
